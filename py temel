@@ -1,0 +1,17 @@
+def reverse_nested(lst):
+    result = []
+    for item in reversed(lst):   # dış listeyi ters çevir
+        if isinstance(item, list):
+            result.append(reverse_nested(item))  # iç listeyi de tersle
+        else:
+            result.append(item)
+    return result
+
+def flatten(lst):
+    result = []
+    for item in lst:
+        if isinstance(item, list):   # sadece listeyse aç
+            result.extend(flatten(item))
+        else:
+            result.append(item)
+    return result
